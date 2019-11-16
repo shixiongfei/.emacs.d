@@ -42,7 +42,7 @@
 (menu-bar-mode -1)
 
 ;; the blinking cursor is nothing, but an annoyance
-(blink-cursor-mode -1)
+(blink-cursor-mode t)
 
 ;; disable the annoying bell ring
 (setq ring-bell-function 'ignore)
