@@ -5,8 +5,9 @@
 ;; UTF-8 as default encoding
 (set-language-environment "UTF-8")
 
-;; Set cursor type
-(setq-default cursor-type 'bar)
+;; Display line number
+(global-display-line-numbers-mode)
+(global-visual-line-mode)
 
 ;; Setup shell exec path
 (if (eq system-type 'windows-nt)
