@@ -4,6 +4,9 @@
 
 (prelude-require-packages '(clang-format))
 
+(custom-set-variables
+  '(clang-format-fallback-style "LLVM"))
+
 (defun clang-format-on-save ()
   (add-hook 'before-save-hook #'clang-format-buffer nil 'local))
 
