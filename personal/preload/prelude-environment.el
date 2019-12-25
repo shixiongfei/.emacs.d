@@ -3,7 +3,8 @@
 ;; Author: shixiongfei
 
 ;; UTF-8 as default encoding
-(set-language-environment "UTF-8")
+(set-language-environment 'utf-8)
+(prefer-coding-system 'utf-8-unix)
 
 ;; Display line number
 (global-display-line-numbers-mode)
