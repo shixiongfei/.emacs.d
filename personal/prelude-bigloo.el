@@ -2,11 +2,6 @@
 ;;
 ;; Auth: shixiongfei
 
-(defun load-plugin (name)
-    (add-to-list 'load-path (expand-file-name
-                                (concat "plugins/" name)
-                                user-emacs-directory)))
-
 (load-plugin "bmacs")
 (load-plugin "bmacs/bee")
 (load-plugin "bmacs/bug")

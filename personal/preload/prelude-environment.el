@@ -20,3 +20,8 @@
 (if (eq system-type 'windows-nt)
     ;; For autopep8 on Windows
     (add-to-list 'exec-path "C:/Program Files/Git/usr/bin"))
+
+(defun load-plugin (name)
+    (add-to-list 'load-path (expand-file-name
+                                (concat "plugins/" name)
+                                user-emacs-directory)))
