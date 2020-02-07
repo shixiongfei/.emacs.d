@@ -3,9 +3,9 @@
 ;; Auth: shixiongfei
 
 (if (eq system-type 'darwin)
-    (setq geiser-chez-binary "chez"))
+    (setq geiser-chez-binary "mit"))
 
-(setq geiser-active-implementations '(chez))
+(setq geiser-active-implementations '(mit))
 
 (provide 'prelude-geiser)
 
