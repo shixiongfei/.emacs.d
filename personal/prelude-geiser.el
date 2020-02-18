@@ -2,7 +2,8 @@
 ;;
 ;; Auth: shixiongfei
 
-(setq geiser-active-implementations '(gambit))
+(setq geiser-active-implementations '(chicken))
+(setq scheme-program-name "csi -:c")
 
 (provide 'prelude-geiser)
 
