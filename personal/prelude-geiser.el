@@ -2,8 +2,7 @@
 ;;
 ;; Auth: shixiongfei
 
-(setq geiser-active-implementations '(chicken))
-(setq scheme-program-name "csi -:c")
+(setq geiser-active-implementations '(guile))
 
 (provide 'prelude-geiser)
 
