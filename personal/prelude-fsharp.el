@@ -5,7 +5,7 @@
 (prelude-require-packages '(fsharp-mode))
 
 (setq inferior-fsharp-program "dotnet fsi --readline-")
-(setq-default fsharp-indent-offset 4)
+(setq-default fsharp-indent-offset 2)
 
 (provide 'prelude-fsharp)
 
