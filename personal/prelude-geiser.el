@@ -2,7 +2,7 @@
 ;;
 ;; Auth: shixiongfei
 
-(setq geiser-active-implementations '(guile))
+(setq geiser-active-implementations '(racket))
 
 (provide 'prelude-geiser)
 
