@@ -11,7 +11,9 @@
 (global-visual-line-mode)
 
 ;; Set frame font
-(set-frame-font "Sarasa Mono SC-12:bold")
+(if (eq system-type 'windows-nt)
+    (set-frame-font "Sarasa Mono SC-12:bold")
+    (set-frame-font "Sarasa Mono SC-14:bold"))
 
 ;; The frame is maximized when Emacs starts up
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
