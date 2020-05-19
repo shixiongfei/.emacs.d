@@ -2,7 +2,11 @@
 ;;
 ;; Auth: shixiongfei
 
-(setq geiser-active-implementations '(racket))
+(when (eq system-type 'darwin)
+  (setq scheme-program-name "chez")
+  (setq geiser-chez-binary "chez"))
+
+(setq geiser-active-implementations '(chez))
 
 (provide 'prelude-geiser)
 
