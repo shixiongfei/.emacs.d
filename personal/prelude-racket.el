@@ -1,6 +1,6 @@
 ;;; prelude-racket.el --- Racket Mode
 ;;
-;; Auth: shixiongfei
+;; Author: shixiongfei
 
 (prelude-require-packages '(racket-mode))
 

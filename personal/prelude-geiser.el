@@ -1,6 +1,6 @@
 ;;; prelude-geiser.el --- Emacs Prelude: Geiser Configuration
 ;;
-;; Auth: shixiongfei
+;; Author: shixiongfei
 
 (when (eq system-type 'darwin)
   (setq scheme-program-name "chez")
