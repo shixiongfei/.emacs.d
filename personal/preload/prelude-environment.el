@@ -21,7 +21,7 @@
 ;; Setup shell exec path
 (if (eq system-type 'windows-nt)
     ;; For autopep8 on Windows
-    (add-to-list 'exec-path "C:/Program Files/Git/usr/bin"))
+    (add-to-list 'exec-path "C:/Progra~1/Git/usr/bin"))
 
 ;; (defun load-plugin (name)
 ;;    (add-to-list 'load-path (expand-file-name
