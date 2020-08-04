@@ -11,17 +11,12 @@
 (global-visual-line-mode)
 
 ;; Set frame font
-(if (eq system-type 'windows-nt)
-    (set-frame-font "Sarasa Mono SC-12:bold")
+(if (eq system-type 'darwin)
     (set-frame-font "Sarasa Mono SC-14:bold"))
 
 ;; The frame is maximized when Emacs starts up
-(add-to-list 'default-frame-alist '(fullscreen . maximized))
-
-;; Setup shell exec path
-(if (eq system-type 'windows-nt)
-    ;; For autopep8 on Windows
-    (add-to-list 'exec-path "C:/Progra~1/Git/usr/bin"))
+(if (eq system-type 'darwin)
+    (add-to-list 'default-frame-alist '(fullscreen . maximized)))
 
 ;; (defun load-plugin (name)
 ;;    (add-to-list 'load-path (expand-file-name
