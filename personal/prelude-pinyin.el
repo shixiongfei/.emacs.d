@@ -2,13 +2,18 @@
 ;;
 ;; Author: shixiongfei
 
-(prelude-require-packages '(pyim pyim-basedict))
+(prelude-require-packages '(pyim pyim-basedict posframe))
 
 (pyim-basedict-enable)
-
 (setq default-input-method "pyim")
+
+(global-unset-key (kbd "C-\\"))
+(global-set-key (kbd "C-'") 'toggle-input-method)
+(global-set-key (kbd "M-i") 'pyim-convert-string-at-point)
+
+(pyim-isearch-mode 1)
+(setq pyim-page-tooltip 'posframe)
 (setq pyim-page-length 9)
-(setq pyim-page-tooltip 'popup)
 
 (provide 'prelude-pinyin)
 
