@@ -7,8 +7,7 @@
 (pyim-basedict-enable)
 (setq default-input-method "pyim")
 
-(global-unset-key (kbd "C-\\"))
-(global-set-key (kbd "C-'") 'toggle-input-method)
+(global-set-key (kbd "C-\\") 'toggle-input-method)
 (global-set-key (kbd "M-i") 'pyim-convert-string-at-point)
 
 (pyim-isearch-mode 1)
