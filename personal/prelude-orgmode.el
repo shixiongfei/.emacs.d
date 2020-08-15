@@ -5,6 +5,13 @@
 (prelude-require-packages '(org-bullets gnuplot gnuplot-mode))
 (require 'org-tempo)
 
+(defun org-publish-sitemap-time-entry (entry style project)
+  (format "%s %s"
+          (format-time-string
+           "[%Y.%m.%d]"
+           (org-publish-find-date entry project))
+          (org-publish-sitemap-default-entry entry style project)))
+
 (add-hook 'org-mode-hook
           (lambda ()
             (org-bullets-mode 1)
@@ -16,18 +23,24 @@
                      :base-extension "org"
                      :publishing-directory "~/Codes/shixf.com/public"
                      :recursive t
+                     :exclude "private*\\|.*\.private\.org"
                      :publishing-function org-html-publish-to-html
+                     :section-numbers nil
                      :author "shixiongfei"
                      :html-validation-link nil
+                     :html-doctype "html5"
                      :html-link-home "/"
                      :html-link-up "/"
+                     :html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"/style.css\"/>"
+                     :html-head-include-default-style nil
                      :with-creator t
                      :auto-preamble t
                      :auto-sitemap t
-                     :sitemap-title "Home Index"
+                     :sitemap-style list
+                     :sitemap-title "{im}shixiongfei"
                      :sitemap-filename "index.org"
                      :sitemap-sort-files anti-chronologically
-                     :sitemap-file-entry-format "%d - %t")
+                     :sitemap-format-entry org-publish-sitemap-time-entry)
                     ("org-static"
                      :base-directory "~/Codes/org"
                      :base-extension "css\\|js\\|png\\|jpg\\|gif"
