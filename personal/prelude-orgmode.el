@@ -31,10 +31,12 @@
                      :html-doctype "html5"
                      :html-link-home "/"
                      :html-link-up "/"
-                     :html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"/style.css\"/>"
+                     ;; :html-home/up-format ""
+                     :html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"/style.css\"/>\n<script src=\"https://hm.baidu.com/hm.js?4dbc75a8d627e17a8714e4c8b2e9afa8\"></script>"
                      :html-head-include-default-style nil
                      :with-creator t
                      :auto-preamble t
+                     ;; :html-preamble ""
                      :auto-sitemap t
                      :sitemap-style list
                      :sitemap-title "{im}shixiongfei"
@@ -46,6 +48,7 @@
                      :base-extension "css\\|js\\|png\\|jpg\\|gif"
                      :publishing-directory "~/Codes/shixf.com/public"
                      :recursive t
+                     :exclude "private*\\|.*\.private\.org"
                      :publishing-function org-publish-attachment)
                     ("org" :components ("org-notes" "org-static"))))
             (global-set-key (kbd "C-c x") 'org-publish-current-project)))
