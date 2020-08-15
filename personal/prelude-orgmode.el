@@ -18,8 +18,8 @@
             (setq org-html-validation-link nil)
             (setq org-export-with-creator t)
             (setq org-publish-project-alist
-                  '(("org-notes"
-                     :base-directory "~/Codes/org"
+                  '(("org-post"
+                     :base-directory "~/Codes/org/post"
                      :base-extension "org"
                      :publishing-directory "~/Codes/shixf.com/public"
                      :recursive t
@@ -32,7 +32,7 @@
                      :html-link-home "/"
                      :html-link-up "/"
                      ;; :html-home/up-format ""
-                     :html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"/style.css\"/>\n<script src=\"https://hm.baidu.com/hm.js?4dbc75a8d627e17a8714e4c8b2e9afa8\"></script>"
+                     :html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"style.css\"/>\n<script src=\"https://hm.baidu.com/hm.js?4dbc75a8d627e17a8714e4c8b2e9afa8\"></script>"
                      :html-head-include-default-style nil
                      :with-creator t
                      :auto-preamble t
@@ -44,13 +44,13 @@
                      :sitemap-sort-files anti-chronologically
                      :sitemap-format-entry org-publish-sitemap-time-entry)
                     ("org-static"
-                     :base-directory "~/Codes/org"
+                     :base-directory "~/Codes/org/static"
                      :base-extension "css\\|js\\|png\\|jpg\\|gif"
                      :publishing-directory "~/Codes/shixf.com/public"
                      :recursive t
                      :exclude "private*\\|.*\.private\.org"
                      :publishing-function org-publish-attachment)
-                    ("org" :components ("org-notes" "org-static"))))
+                    ("org" :components ("org-post" "org-static"))))
             (global-set-key (kbd "C-c x") 'org-publish-current-project)))
 
 (with-eval-after-load 'org
