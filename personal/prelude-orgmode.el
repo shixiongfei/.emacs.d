@@ -26,6 +26,7 @@
                      :exclude "private*\\|.*\.private\.org"
                      :publishing-function org-html-publish-to-html
                      :section-numbers nil
+                     :with-sub-superscript nil
                      :author "shixiongfei"
                      :html-validation-link nil
                      :html-doctype "html5"
