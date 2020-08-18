@@ -3,7 +3,8 @@
 ;; Author: shixiongfei
 
 (prelude-require-packages '(org-bullets gnuplot gnuplot-mode))
-(require 'org-tempo)
+(unless (version< (org-version) "9.2")
+  (require 'org-tempo))
 
 (defun org-publish-sitemap-time-entry (entry style project)
   (format "%s %s"
