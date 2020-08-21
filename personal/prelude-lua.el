@@ -2,6 +2,7 @@
 ;;
 ;; Author: shixiongfei
 
+(require 'prelude-programming)
 (prelude-require-packages '(lua-mode))
 
 (with-eval-after-load 'lua-mode

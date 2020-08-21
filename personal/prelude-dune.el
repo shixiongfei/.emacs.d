@@ -2,6 +2,7 @@
 ;;
 ;; Author: shixiongfei
 
+(require 'prelude-programming)
 (prelude-require-packages '(dune))
 
 (autoload 'dune-mode "dune-mode" "Dune mode." t)
