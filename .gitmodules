@@ -1,0 +1,3 @@
+[submodule "r7rs-swank"]
+	path = r7rs-swank
+	url = https://github.com/ecraven/r7rs-swank.git
