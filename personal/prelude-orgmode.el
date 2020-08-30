@@ -47,12 +47,17 @@
                      :sitemap-format-entry org-publish-sitemap-time-entry)
                     ("org-static"
                      :base-directory "~/Codes/org/static"
-                     :base-extension "css\\|js\\|png\\|jpg\\|gif"
+                     :base-extension "css\\|js"
                      :publishing-directory "~/Codes/shixf.com/public"
                      :recursive t
-                     :exclude "private*\\|.*\.private\.org"
                      :publishing-function org-publish-attachment)
-                    ("org" :components ("org-post" "org-static"))))
+                    ("org-images"
+                     :base-directory "~/Codes/org/post"
+                     :base-extension "jpg\\|jpeg\\|png\\|gif"
+                     :publishing-directory "~/Codes/shixf.com/public"
+                     :recursive t
+                     :publishing-function org-publish-attachment)
+                    ("org" :components ("org-post" "org-static" "org-images"))))
             (global-set-key (kbd "C-c x") 'org-publish-current-project)))
 
 (with-eval-after-load 'org
