@@ -67,6 +67,7 @@
      (gnuplot . t)
      (ocaml . t)
      (C . t)
+     (lisp . t)
      (python . t)))
   (setq org-confirm-babel-evaluate nil))
 
