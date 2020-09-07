@@ -68,6 +68,7 @@
      (ocaml . t)
      (C . t)
      (scheme . t)
+     (lisp . t)
      (python . t)))
   (setq org-confirm-babel-evaluate nil))
 
