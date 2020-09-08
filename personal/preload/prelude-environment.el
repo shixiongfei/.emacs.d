@@ -14,8 +14,12 @@
 (if (eq system-type 'darwin)
     (set-frame-font "Sarasa Mono SC-14:bold"))
 
+(if (eq system-type 'windows-nt)
+    (set-frame-font "Sarasa Mono SC-12:bold"))
+
 ;; The frame is maximized when Emacs starts up
-(if (eq system-type 'darwin)
+(if (or (eq system-type 'darwin)
+        (eq system-type 'windows-nt))
     (add-to-list 'default-frame-alist '(fullscreen . maximized)))
 
 ;; (defun load-plugin (name)
