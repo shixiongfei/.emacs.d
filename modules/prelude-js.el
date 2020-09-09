@@ -50,6 +50,7 @@
     (subword-mode +1))
 
   (setq prelude-js-mode-hook 'prelude-js-mode-defaults)
+  (setq-default js2-basic-offset 2)
 
   (add-hook 'js2-mode-hook (lambda () (run-hooks 'prelude-js-mode-hook))))
 
