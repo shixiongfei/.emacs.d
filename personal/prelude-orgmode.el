@@ -63,13 +63,15 @@
 (with-eval-after-load 'org
   (org-babel-do-load-languages
    'org-babel-load-languages
-   '((emacs-lisp . t)
+   '((C . t)
+     (calc .t)
+     (emacs-lisp . t)
      (gnuplot . t)
-     (ocaml . t)
-     (C . t)
-     (scheme . t)
+     (js . t)
+     (latex . t)
      (lisp . t)
-     (python . t)))
+     (python . t)
+     (scheme . t)))
   (setq org-confirm-babel-evaluate nil))
 
 (provide 'prelude-orgmode)
