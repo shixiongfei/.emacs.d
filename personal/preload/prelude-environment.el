@@ -10,6 +10,10 @@
 (global-display-line-numbers-mode)
 (global-visual-line-mode)
 
+;; For autopep8 on Windows
+(if (eq system-type 'windows-nt)
+    (add-to-list 'exec-path "C:/Progra~1/Git/usr/bin"))
+
 ;; Set frame font
 (if (eq system-type 'darwin)
     (set-frame-font "Sarasa Mono SC-14:bold"))
