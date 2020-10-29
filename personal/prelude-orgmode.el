@@ -69,10 +69,10 @@
      (gnuplot . t)
      (js . t)
      (latex . t)
-     (lisp . t)
      (python . t)
-     (scheme . t)))
-  (setq org-confirm-babel-evaluate nil))
+     (racket . t)))
+  (setq org-confirm-babel-evaluate nil)
+  (setq org-babel-command:racket "/usr/local/bin/racket"))
 
 (provide 'prelude-orgmode)
 
