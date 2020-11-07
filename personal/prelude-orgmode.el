@@ -70,6 +70,7 @@
      (js . t)
      (latex . t)
      (python . t)
+     (scheme . t)
      (racket . t)))
   (setq org-confirm-babel-evaluate nil)
   (setq org-babel-command:racket "/usr/local/bin/racket"))
