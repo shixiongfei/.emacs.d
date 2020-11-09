@@ -7,7 +7,8 @@
 (require 'prelude-lisp)
 
 (with-eval-after-load 'racket-mode
-  (define-key racket-mode-map (kbd "M-RET") 'racket-run))
+  (define-key racket-mode-map (kbd "M-RET") 'racket-run)
+  (define-key racket-mode-map (kbd "M-.") 'racket-repl-visit-definition))
 
 (add-hook 'racket-mode-hook #'racket-unicode-input-method-enable)
 (add-hook 'racket-repl-mode-hook #'racket-unicode-input-method-enable)
