@@ -14,6 +14,7 @@
 (add-hook 'racket-repl-mode-hook #'racket-unicode-input-method-enable)
 
 (add-hook 'racket-mode-hook (lambda () (run-hooks 'prelude-lisp-coding-hook)))
+(add-hook 'racket-mode-hook (lambda () (setq-local whitespace-line-column 102)))
 
 (add-to-list 'auto-mode-alist '("\\.rkt$" . racket-mode))
 (add-to-list 'auto-mode-alist '("\\.rkt?\\'" . racket-mode))
