@@ -9,10 +9,8 @@
 
 ;;; Commentary:
 
-;; Enhanced configuration for python.el (the latest and greatest
-;; Python mode Emacs has to offer).  Most notably Prelude leverages
-;; anaconda mode to provide code navigation, documentation lookup and
-;; completion for Python.
+;; Some basic configuration for python.el (the latest and greatest
+;; Python mode Emacs has to offer).
 
 ;;; License:
 
@@ -33,26 +31,16 @@
 
 ;;; Code:
 
-(require 'electric)
-(require 'prelude-programming)
-
-;; Code navigation, documentation lookup and completion for Python
 (prelude-require-package 'anaconda-mode)
 
 (when (boundp 'company-backends)
   (prelude-require-package 'company-anaconda)
   (add-to-list 'company-backends 'company-anaconda))
 
-(defcustom prelude-python-mode-set-encoding-automatically nil
-  "Non-nil values enable auto insertion of '# coding: utf-8' on python buffers."
-  :type 'boolean
-  :group 'prelude)
+(require 'electric)
+(require 'prelude-programming)
 
-;;; Encoding detection/insertion logic
-;;
-;; Adapted from ruby-mode.el
-;;
-;; This logic was useful in Python 2, but it's not really needed in Python 3.
+;; Copy pasted from ruby-mode.el
 (defun prelude-python--encoding-comment-required-p ()
   (re-search-forward "[^\0-\177]" nil t))
 
@@ -91,16 +79,14 @@
           (when (buffer-modified-p)
             (basic-save-buffer-1)))))))
 
-;;; python-mode setup
-
 (when (fboundp 'exec-path-from-shell-copy-env)
   (exec-path-from-shell-copy-env "PYTHONPATH"))
 
 (defun prelude-python-mode-defaults ()
   "Defaults for Python programming."
   (subword-mode +1)
-  (anaconda-mode +1)
-  (eldoc-mode +1)
+  (anaconda-mode 1)
+  (eldoc-mode 1)
   (setq-local electric-layout-rules
               '((?: . (lambda ()
                         (and (zerop (first (syntax-ppss)))
@@ -111,8 +97,7 @@
                 #'python-imenu-create-flat-index))
   (add-hook 'post-self-insert-hook
             #'electric-layout-post-self-insert-function nil 'local)
-  (when prelude-python-mode-set-encoding-automatically
-    (add-hook 'after-save-hook 'prelude-python-mode-set-encoding nil 'local)))
+  (add-hook 'after-save-hook 'prelude-python-mode-set-encoding nil 'local))
 
 (setq prelude-python-mode-hook 'prelude-python-mode-defaults)
 

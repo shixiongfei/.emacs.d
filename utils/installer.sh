@@ -174,10 +174,9 @@ else
 fi
 
 ### Check emacs version
-emacs_version="$(emacs --version 2>/dev/null | sed -n 's/.*[^0-9.]\([0-9]*\.[0-9.]*\).*/\1/p;q' | sed 's/\..*//g')"
-if [ "${emacs_version:-0}" -lt 25 ]
+if [ $(emacs --version 2>/dev/null | sed -n 's/.*[^0-9.]\([0-9]*\.[0-9.]*\).*/\1/p;q' | sed 's/\..*//g') -lt 24 ]
 then
-    printf "$YELLOW WARNING:$RESET Prelude requires Emacs $RED 25$RESET or newer!\n"
+    printf "$YELLOW WARNING:$RESET Prelude depends on emacs $RED 24$RESET !\n"
 fi
 
 if [ -f "$HOME/.emacs" ]

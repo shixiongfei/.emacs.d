@@ -37,21 +37,20 @@
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
-                                        ;(package-initialize)
+;(package-initialize)
 
-(defvar prelude-user
+(defvar current-user
   (getenv
    (if (equal system-type 'windows-nt) "USERNAME" "USER")))
 
-(message "[Prelude] Prelude is powering up... Be patient, Master %s!" prelude-user)
+(message "Prelude is powering up... Be patient, Master %s!" current-user)
 
 (when (version< emacs-version "25.1")
-  (error "[Prelude] Prelude requires GNU Emacs 25.1 or newer, but you're running %s" emacs-version))
+  (error "Prelude requires GNU Emacs 25.1 or newer, but you're running %s" emacs-version))
 
 ;; Always load newest byte code
 (setq load-prefer-newer t)
 
-;; Define Prelude's directory structure
 (defvar prelude-dir (file-name-directory load-file-name)
   "The root dir of the Emacs Prelude distribution.")
 (defvar prelude-core-dir (expand-file-name "core" prelude-dir)
@@ -68,7 +67,7 @@ by Prelude.")
   "This directory is for your personal configuration, that you want loaded before Prelude.")
 (defvar prelude-vendor-dir (expand-file-name "vendor" prelude-dir)
   "This directory houses packages that are not yet available in ELPA (or MELPA).")
-(defvar prelude-savefile-dir (expand-file-name "savefile" user-emacs-directory)
+(defvar prelude-savefile-dir (expand-file-name "savefile" prelude-dir)
   "This folder stores all the automatically generated save/history-files.")
 (defvar prelude-modules-file (expand-file-name "prelude-modules.el" prelude-personal-dir)
   "This file contains a list of modules that will be loaded by Prelude.")
@@ -77,13 +76,13 @@ by Prelude.")
   (make-directory prelude-savefile-dir))
 
 (defun prelude-add-subfolders-to-load-path (parent-dir)
-  "Add all level PARENT-DIR subdirs to the `load-path'."
-  (dolist (f (directory-files parent-dir))
-    (let ((name (expand-file-name f parent-dir)))
-      (when (and (file-directory-p name)
-                 (not (string-prefix-p "." f)))
-        (add-to-list 'load-path name)
-        (prelude-add-subfolders-to-load-path name)))))
+ "Add all level PARENT-DIR subdirs to the `load-path'."
+ (dolist (f (directory-files parent-dir))
+   (let ((name (expand-file-name f parent-dir)))
+     (when (and (file-directory-p name)
+                (not (string-prefix-p "." f)))
+       (add-to-list 'load-path name)
+       (prelude-add-subfolders-to-load-path name)))))
 
 ;; add Prelude's directories to Emacs's `load-path'
 (add-to-list 'load-path prelude-core-dir)
@@ -100,12 +99,12 @@ by Prelude.")
 
 ;; preload the personal settings from `prelude-personal-preload-dir'
 (when (file-exists-p prelude-personal-preload-dir)
-  (message "[Prelude] Loading personal configuration files in %s..." prelude-personal-preload-dir)
+  (message "Loading personal configuration files in %s..." prelude-personal-preload-dir)
   (mapc 'load (directory-files prelude-personal-preload-dir 't "^[^#\.].*el$")))
 
-(message "[Prelude] Loading Prelude's core modules...")
+(message "Loading Prelude's core...")
 
-;; load the core stuff
+;; the core stuff
 (require 'prelude-packages)
 (require 'prelude-custom)  ;; Needs to be loaded before core, editor and ui
 (require 'prelude-ui)
@@ -122,35 +121,25 @@ by Prelude.")
 (when (eq system-type 'gnu/linux)
   (require 'prelude-linux))
 
-;; WSL specific setting
-(when (and (eq system-type 'gnu/linux) (getenv "WSLENV"))
-  (require 'prelude-wsl))
-
-;; Windows specific settings
-(when (eq system-type 'windows-nt)
-  (require 'prelude-windows))
-
-(message "[Prelude] Loading Prelude's additional modules...")
+(message "Loading Prelude's modules...")
 
 ;; the modules
 (if (file-exists-p prelude-modules-file)
     (load prelude-modules-file)
-  (message "[Prelude] Missing personal modules file %s" prelude-modules-file)
-  (message "[Prelude] Falling back to the bundled example file sample/prelude-modules.el")
-  (message "[Prelude] You should copy this file to your personal configuration folder and tweak it to your liking")
-  (load (expand-file-name "sample/prelude-modules.el" user-emacs-directory)))
+  (message "Missing modules file %s" prelude-modules-file)
+  (message "You can get started by copying the bundled example file from sample/prelude-modules.el"))
 
 ;; config changes made through the customize UI will be stored here
 (setq custom-file (expand-file-name "custom.el" prelude-personal-dir))
 
 ;; load the personal settings (this includes `custom-file')
 (when (file-exists-p prelude-personal-dir)
-  (message "[Prelude] Loading personal configuration files in %s..." prelude-personal-dir)
+  (message "Loading personal configuration files in %s..." prelude-personal-dir)
   (mapc 'load (delete
                prelude-modules-file
                (directory-files prelude-personal-dir 't "^[^#\.].*\\.el$"))))
 
-(message "[Prelude] Prelude is ready to do thy bidding, Master %s!" prelude-user)
+(message "Prelude is ready to do thy bidding, Master %s!" current-user)
 
 ;; Patch security vulnerability in Emacs versions older than 25.3
 (when (version< emacs-version "25.3")

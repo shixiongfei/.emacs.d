@@ -32,7 +32,6 @@
 (prelude-require-packages '(company))
 
 (require 'company)
-(require 'diminish)
 
 (setq company-idle-delay 0.5)
 (setq company-show-numbers t)
@@ -44,7 +43,6 @@
 (setq company-tooltip-flip-when-above t)
 
 (global-company-mode 1)
-(diminish 'global-company-mode)
 
 (provide 'prelude-company)
 ;;; prelude-company.el ends here

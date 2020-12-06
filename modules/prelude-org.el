@@ -30,15 +30,10 @@
 
 ;;; Code:
 
-(require 'org)
-
-(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
-
-;; a few useful global keybindings for org-mode
+(add-to-list 'auto-mode-alist '("\\.org\\’" . org-mode))
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cb" 'org-switchb)
-
 (setq org-log-done t)
 
 (defun prelude-org-mode-defaults ()
@@ -47,7 +42,7 @@
     (set-keymap-parent newmap oldmap)
     (define-key newmap (kbd "C-c +") nil)
     (define-key newmap (kbd "C-c -") nil)
-    (define-key newmap (kbd "C-a") 'org-beginning-of-line)
+    (define-key newmap (kbd "C-a") nil)
     (make-local-variable 'minor-mode-overriding-map-alist)
     (push `(prelude-mode . ,newmap) minor-mode-overriding-map-alist))
 )

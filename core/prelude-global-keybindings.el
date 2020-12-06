@@ -44,10 +44,9 @@
 
 ;; Indentation help
 (global-set-key (kbd "C-^") 'crux-top-join-line)
-
 ;; Start proced in a similar manner to dired
 (unless (eq system-type 'darwin)
-  (global-set-key (kbd "C-x p") 'proced))
+    (global-set-key (kbd "C-x p") 'proced))
 
 ;; Start eshell or switch to it if it's active.
 (global-set-key (kbd "C-x m") 'eshell)
@@ -79,7 +78,10 @@
 (global-set-key (kbd "M-Z") 'zop-to-char)
 
 ;; kill lines backward
-(global-set-key (kbd "C-<backspace>") 'crux-kill-line-backwards)
+(global-set-key (kbd "C-<backspace>") (lambda ()
+                                        (interactive)
+                                        (kill-line 0)
+                                        (indent-according-to-mode)))
 
 (global-set-key [remap kill-whole-line] 'crux-kill-whole-line)
 
@@ -92,6 +94,9 @@
 ;; replace buffer-menu with ibuffer
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
+(unless (fboundp 'toggle-frame-fullscreen)
+  (global-set-key (kbd "<f11>") 'prelude-fullscreen))
+
 ;; toggle menu-bar visibility
 (global-set-key (kbd "<f12>") 'menu-bar-mode)
 
@@ -100,7 +105,7 @@
 
 (global-set-key (kbd "C-=") 'er/expand-region)
 
-(global-set-key (kbd "C-c v") 'avy-goto-word-or-subword-1)
+(global-set-key (kbd "C-c j") 'avy-goto-word-or-subword-1)
 (global-set-key (kbd "s-.") 'avy-goto-word-or-subword-1)
 
 ;; improved window navigation with ace-window
