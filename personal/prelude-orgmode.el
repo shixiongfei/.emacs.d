@@ -22,7 +22,7 @@
                   '(("org-post"
                      :base-directory "~/Codes/org/post"
                      :base-extension "org"
-                     :publishing-directory "~/Codes/shixf.com/public"
+                     :publishing-directory "~/Codes/website/public"
                      :recursive t
                      :exclude "private*\\|.*\.private\.org"
                      :publishing-function org-html-publish-to-html
@@ -48,13 +48,13 @@
                     ("org-static"
                      :base-directory "~/Codes/org/static"
                      :base-extension "css\\|js"
-                     :publishing-directory "~/Codes/shixf.com/public"
+                     :publishing-directory "~/Codes/website/public"
                      :recursive t
                      :publishing-function org-publish-attachment)
                     ("org-images"
                      :base-directory "~/Codes/org/post"
                      :base-extension "jpg\\|jpeg\\|png\\|gif"
-                     :publishing-directory "~/Codes/shixf.com/public"
+                     :publishing-directory "~/Codes/website/public"
                      :recursive t
                      :publishing-function org-publish-attachment)
                     ("org" :components ("org-post" "org-static" "org-images"))))
