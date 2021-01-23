@@ -68,6 +68,7 @@
      (emacs-lisp . t)
      (gnuplot . t)
      (js . t)
+     (lua . t)
      (latex . t)
      (python . t)
      (scheme . t)
