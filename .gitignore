@@ -30,3 +30,6 @@ anaconda-mode/
 transient/
 request/
 racket-mode
+var/
+.cache/
+.lsp-session*
