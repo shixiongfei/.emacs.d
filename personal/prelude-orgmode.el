@@ -2,7 +2,10 @@
 ;;
 ;; Author: shixiongfei
 
-(prelude-require-packages '(org-bullets gnuplot gnuplot-mode))
+(prelude-require-packages '(org-bullets
+                            gnuplot
+                            gnuplot-mode
+                            ob-typescript))
 (unless (version< (org-version) "9.2")
   (require 'org-tempo))
 
@@ -64,7 +67,6 @@
   (org-babel-do-load-languages
    'org-babel-load-languages
    '((C . t)
-     (cpp . t) 
      (calc .t)
      (emacs-lisp . t)
      (gnuplot . t)
