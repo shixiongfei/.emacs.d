@@ -64,10 +64,13 @@
   (org-babel-do-load-languages
    'org-babel-load-languages
    '((C . t)
+     (cpp . t) 
      (calc .t)
      (emacs-lisp . t)
      (gnuplot . t)
      (js . t)
+     (css . t)
+     (typescript . t)
      (lua . t)
      (latex . t)
      (python . t)
