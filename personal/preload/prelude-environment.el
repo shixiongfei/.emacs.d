@@ -14,8 +14,13 @@
 (if (eq system-type 'windows-nt)
     (add-to-list 'exec-path "C:/Progra~1/Git/usr/bin"))
 
-;; Set frame font
-(set-frame-font "Inconsolata")
+;; Set Default Font
+(set-face-attribute 'default nil :font "Inconsolata")
+
+;; Set CJK Font
+(set-fontset-font t 'han "Noto Serif CJK SC")
+(set-fontset-font t 'kana "Noto Serif CJK JP")
+(set-fontset-font t 'hangul "Noto Serif CJK KR")
 
 ;; The frame is maximized when Emacs starts up
 (if (or (eq system-type 'darwin)
