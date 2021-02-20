@@ -17,8 +17,12 @@
 ;; Setting Default Font
 (set-face-attribute 'default nil :font "Inconsolata")
 
+;; Setting Unicode Font
+(set-fontset-font t 'unicode "STIX Two Math")
+
 ;; Setting CJK Font
 (set-fontset-font t 'han "Noto Serif CJK SC")
+(set-fontset-font t 'han "Noto Serif CJK TC" nil 'append)
 (set-fontset-font t 'kana "Noto Serif CJK JP")
 (set-fontset-font t 'hangul "Noto Serif CJK KR")
 
