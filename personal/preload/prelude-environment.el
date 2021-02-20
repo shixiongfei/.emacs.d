@@ -14,10 +14,10 @@
 (if (eq system-type 'windows-nt)
     (add-to-list 'exec-path "C:/Progra~1/Git/usr/bin"))
 
-;; Set Default Font
+;; Setting Default Font
 (set-face-attribute 'default nil :font "Inconsolata")
 
-;; Set CJK Font
+;; Setting CJK Font
 (set-fontset-font t 'han "Noto Serif CJK SC")
 (set-fontset-font t 'kana "Noto Serif CJK JP")
 (set-fontset-font t 'hangul "Noto Serif CJK KR")
