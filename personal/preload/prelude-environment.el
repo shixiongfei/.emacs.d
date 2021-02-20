@@ -15,7 +15,7 @@
     (add-to-list 'exec-path "C:/Progra~1/Git/usr/bin"))
 
 ;; Set frame font
-(set-frame-font "Sarasa Mono SC")
+(set-frame-font "Inconsolata-12")
 
 ;; The frame is maximized when Emacs starts up
 (if (or (eq system-type 'darwin)
