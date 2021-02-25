@@ -49,6 +49,7 @@
 
   (setq prelude-js-mode-hook 'prelude-js-mode-defaults)
   (setq-default js2-basic-offset 2)
+  (setq js2-strict-missing-semi-warning nil)
 
   (add-hook 'js2-mode-hook (lambda () (run-hooks 'prelude-js-mode-hook))))
 
