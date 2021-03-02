@@ -74,6 +74,7 @@
      (css . t)
      (typescript . t)
      (lua . t)
+     (lisp . t)
      (latex . t)
      (python . t)
      (scheme . t)
