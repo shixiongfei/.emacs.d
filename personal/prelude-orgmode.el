@@ -4,8 +4,8 @@
 
 (prelude-require-packages '(org-bullets
                             gnuplot
-                            gnuplot-mode
-                            ob-typescript))
+                            gnuplot-mode))
+
 (unless (version< (org-version) "9.2")
   (require 'org-tempo))
 
@@ -68,19 +68,14 @@
    'org-babel-load-languages
    '((C . t)
      (calc .t)
+     (css . t)
      (emacs-lisp . t)
      (gnuplot . t)
      (js . t)
-     (css . t)
-     (typescript . t)
-     (lua . t)
-     (lisp . t)
      (latex . t)
-     (python . t)
-     (scheme . t)
-     (racket . t)))
-  (setq org-confirm-babel-evaluate nil)
-  (setq org-babel-command:racket "/usr/local/bin/racket"))
+     (lisp . t)
+     (python . t)))
+  (setq org-confirm-babel-evaluate nil))
 
 (provide 'prelude-orgmode)
 

@@ -32,10 +32,10 @@
 ;; (require 'prelude-ruby)
 ;; (require 'prelude-rust)
 ;; (require 'prelude-scala)
-(require 'prelude-scheme)
+;; (require 'prelude-scheme)
 (require 'prelude-shell)
 ;; (require 'prelude-scss)
-(require 'prelude-ts)
+;; (require 'prelude-ts)
 (require 'prelude-web) ;; Emacs mode for web templates
 (require 'prelude-xml)
 (require 'prelude-yaml)

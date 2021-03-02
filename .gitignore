@@ -33,3 +33,4 @@ racket-mode
 var/
 .cache/
 .lsp-session*
+pyim
