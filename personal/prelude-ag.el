@@ -4,6 +4,7 @@
 
 (prelude-require-packages '(ag))
 
+;; the-silver-searcher
 (global-set-key (kbd "C-c /") 'counsel-ag)
 
 (provide 'prelude-ag)
