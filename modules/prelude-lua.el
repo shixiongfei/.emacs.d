@@ -39,9 +39,10 @@
   (setq lua-indent-nested-block-content-align nil)
   (setq lua-indent-close-paren-align nil)
   (setq lua-indent-string-contents t)
-  (define-key lua-mode-map "\C-c\C-c" 'lua-send-current-line)
-  (define-key lua-mode-map "\C-c\C-d" 'lua-send-defun)
-  (define-key lua-mode-map "\C-c\C-e" 'lua-send-region)
+  (define-key lua-mode-map "\C-c\C-b" 'lua-send-buffer)
+  (define-key lua-mode-map "\C-c\C-l" 'lua-send-current-line)
+  (define-key lua-mode-map "\C-c\C-f" 'lua-send-defun)
+  (define-key lua-mode-map "\C-c\C-r" 'lua-send-region)
   (define-key lua-mode-map "\C-c\C-z" 'lua-show-process-buffer))
 
 (autoload 'lua-mode "lua-mode" "Lua editing mode." t)
