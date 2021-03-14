@@ -4,7 +4,8 @@
 
 (prelude-require-packages '(js2-refactor
                             xref-js2
-                            js2-highlight-vars))
+                            js2-highlight-vars
+                            indium))
 
 ;; js2-refactor
 (add-hook 'js2-mode-hook #'js2-refactor-mode)
@@ -21,6 +22,10 @@
 ;; js2-highlight-vars
 (eval-after-load "js2-highlight-vars-autoloads"
   '(add-hook 'js2-mode-hook (lambda () (js2-highlight-vars-mode))))
+
+;; indium
+(add-hook 'js-mode-hook #'indium-interaction-mode)
+
 
 (provide 'prelude-javascript)
 
