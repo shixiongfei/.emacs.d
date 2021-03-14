@@ -24,7 +24,7 @@
   '(add-hook 'js2-mode-hook (lambda () (js2-highlight-vars-mode))))
 
 ;; indium
-(add-hook 'js-mode-hook #'indium-interaction-mode)
+(add-hook 'js2-mode-hook #'indium-interaction-mode)
 
 
 (provide 'prelude-javascript)
