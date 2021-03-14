@@ -6,10 +6,6 @@
 (set-language-environment "UTF-8")
 (prefer-coding-system 'utf-8)
 
-;; Display line number
-(global-display-line-numbers-mode)
-(global-visual-line-mode)
-
 ;; For autopep8 on Windows
 (if (eq system-type 'windows-nt)
     (add-to-list 'exec-path "C:/Progra~1/Git/usr/bin"))
