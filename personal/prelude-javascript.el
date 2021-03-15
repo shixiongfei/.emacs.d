@@ -4,8 +4,21 @@
 
 (prelude-require-packages '(js2-refactor
                             xref-js2
+                            js-doc
                             js2-highlight-vars
-                            indium))
+                            add-node-modules-path
+                            prettier-js))
+
+;; js-doc
+(require 'js-doc)
+(add-hook 'js2-mode-hook
+          #'(lambda ()
+              (define-key js2-mode-map "\C-c \M-i" 'js-doc-insert-function-doc)
+              (define-key js2-mode-map "@" 'js-doc-insert-tag)))
+
+;; add-node-modules-path
+(eval-after-load 'js2-mode
+      '(add-hook 'js2-mode-hook #'add-node-modules-path))
 
 ;; js2-refactor
 (add-hook 'js2-mode-hook #'js2-refactor-mode)
@@ -23,9 +36,17 @@
 (eval-after-load "js2-highlight-vars-autoloads"
   '(add-hook 'js2-mode-hook (lambda () (js2-highlight-vars-mode))))
 
-;; indium
-(add-hook 'js2-mode-hook #'indium-interaction-mode)
+;; prettier-js
+(setq prettier-js-args '("--trailing-comma" "none"
+                         "--single-quote" "true"
+                         "--bracket-spacing" "true"
+                         "--print-width" "80"
+                         "--arrow-parens" "avoid"
+                         "--no-semi"))
 
+(add-hook 'js2-mode-hook 'prettier-js-mode)
+(add-hook 'web-mode-hook 'prettier-js-mode)
+(add-hook 'css-mode-hook 'prettier-js-mode)
 
 (provide 'prelude-javascript)
 
