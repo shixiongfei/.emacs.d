@@ -4,6 +4,9 @@
 
 (prelude-require-packages '(pyim pyim-basedict posframe))
 
+(require 'pyim)
+(require 'pyim-basedict)
+
 (pyim-basedict-enable)
 (setq default-input-method "pyim")
 
@@ -28,4 +31,3 @@
 (provide 'prelude-pinyin)
 
 ;;; prelude-pinyin ends here
-
