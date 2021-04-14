@@ -2,7 +2,6 @@
 ;;
 ;; Author: shixiongfei
 
-
 (prelude-require-packages '(geiser-chez))
 
 (require 'geiser-chez)
