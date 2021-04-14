@@ -74,7 +74,8 @@
      (gnuplot . t)
      (js . t)
      (latex . t)
-     (python . t)))
+     (python . t)
+     (scheme . t)))
   (setq org-confirm-babel-evaluate nil)
   (setq org-babel-clojure-backend 'cider))
 
