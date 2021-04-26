@@ -74,17 +74,29 @@
   (scheme-split-window)
   (scheme-send-definition))
 
-(defun scheme-send-region-split-window ()
-  (interactive)
-  (scheme-split-window)
-  (scheme-send-region))
-
 
 (add-hook 'scheme-mode-hook
           (lambda ()
             (define-key scheme-mode-map (kbd "C-x C-e") 'scheme-send-last-sexp-split-window)
-            (define-key scheme-mode-map (kbd "C-c C-e") 'scheme-send-definition-split-window)
-            (define-key scheme-mode-map (kbd "C-c C-r") 'scheme-send-region-splite-window)))
+            (define-key scheme-mode-map (kbd "C-c C-e") 'scheme-send-definition-split-window)))
+
+
+(add-hook 'inferior-scheme-mode-hook
+          (lambda ()
+            ;; Overwrite the standard 'switch-to-buffer' to use
+            ;; 'switch-to-buffer-other-window'
+            (defun switch-to-scheme (eob-p)
+              "Switch to the Scheme process buffer.
+               With argument, position cursor at end of buffer."
+              (interactive "P")
+              (if (or (and scheme-buffer (get-buffer scheme-buffer))
+                      (scheme-interactively-start-process))
+                  (switch-to-buffer-other-window scheme-buffer)
+                (error "No current process buffer. See variable `scheme-buffer'"))
+              (when eob-p
+                (push-mark)
+                (goto-char (point-max))))))
+
 
 (provide 'prelude-scheme)
 
