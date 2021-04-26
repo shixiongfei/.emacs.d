@@ -29,19 +29,62 @@
 ;; Boston, MA 02110-1301, USA.
 
 ;;; Code:
-(prelude-require-package 'geiser)
 
 (require 'prelude-lisp)
-(require 'geiser)
+(require 'cmuscheme)
 
-;; geiser replies on a REPL to provide autodoc and completion
-(setq geiser-mode-start-repl-p t)
-
-;; keep the home clean
-(setq geiser-repl-history-filename
-      (expand-file-name "geiser-history" prelude-savefile-dir))
-
+(setq scheme-program-name "scheme48")
 (add-hook 'scheme-mode-hook (lambda () (run-hooks 'prelude-lisp-coding-hook)))
+
+
+;; bypass the interactive question and start the default interpreter
+(defun scheme-proc ()
+  "Return the current Scheme process, starting one if necessary."
+  (unless (and scheme-buffer
+               (get-buffer scheme-buffer)
+               (comint-check-proc scheme-buffer))
+    (save-window-excursion
+      (run-scheme scheme-program-name)))
+  (or (scheme-get-process)
+      (error "No current process. See variable `scheme-buffer'")))
+
+
+(defun scheme-split-window ()
+  (cond
+   ((= 1 (count-windows))
+    (delete-other-windows)
+    (split-window-vertically (floor (* 0.68 (window-height))))
+    (other-window 1)
+    (switch-to-buffer "*scheme*")
+    (other-window 1))
+   ((not (get-buffer-window "*scheme*"))
+    (other-window 1)
+    (switch-to-buffer "*scheme*")
+    (other-window -1))))
+
+
+(defun scheme-send-last-sexp-split-window ()
+  (interactive)
+  (scheme-split-window)
+  (scheme-send-last-sexp))
+
+
+(defun scheme-send-definition-split-window ()
+  (interactive)
+  (scheme-split-window)
+  (scheme-send-definition))
+
+(defun scheme-send-region-split-window ()
+  (interactive)
+  (scheme-split-window)
+  (scheme-send-region))
+
+
+(add-hook 'scheme-mode-hook
+          (lambda ()
+            (define-key scheme-mode-map (kbd "C-x C-e") 'scheme-send-last-sexp-split-window)
+            (define-key scheme-mode-map (kbd "C-c C-e") 'scheme-send-definition-split-window)
+            (define-key scheme-mode-map (kbd "C-c C-r") 'scheme-send-region-splite-window)))
 
 (provide 'prelude-scheme)
 

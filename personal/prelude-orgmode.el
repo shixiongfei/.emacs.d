@@ -68,16 +68,13 @@
    'org-babel-load-languages
    '((C . t)
      (calc .t)
-     (clojure . t)
      (css . t)
      (emacs-lisp . t)
      (gnuplot . t)
      (js . t)
      (latex . t)
-     (python . t)
-     (scheme . t)))
-  (setq org-confirm-babel-evaluate nil)
-  (setq org-babel-clojure-backend 'cider))
+     (python . t)))
+  (setq org-confirm-babel-evaluate nil))
 
 (provide 'prelude-orgmode)
 
