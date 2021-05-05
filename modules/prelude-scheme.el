@@ -33,7 +33,12 @@
 (require 'prelude-lisp)
 (require 'cmuscheme)
 
-(setq scheme-program-name "scheme48")
+(setq scheme-mit-dialect nil)
+
+(if (eq system-type 'darwin)
+    (setq scheme-program-name "chez")
+  (setq scheme-program-name "scheme"))
+
 (add-hook 'scheme-mode-hook (lambda () (run-hooks 'prelude-lisp-coding-hook)))
 
 
